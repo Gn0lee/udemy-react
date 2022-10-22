@@ -1,9 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialCartState = {
+export const initialCartState = {
   cart: [],
   cartNum: 0,
-  showCart: false,
 };
 
 const cartSlice = createSlice({
@@ -77,9 +76,6 @@ const cartSlice = createSlice({
           return el;
         }),
       };
-    },
-    toggleShowCart(state) {
-      return { ...state, showCart: !state.showCart };
     },
   },
 });
