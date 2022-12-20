@@ -10,8 +10,32 @@ const dummy_meetups = [
   },
 ];
 
-function HomePage() {
-  return <MeetupList meetups={dummy_meetups} />;
+function HomePage(props) {
+  return <MeetupList meetups={props.meetups} />;
 }
+
+export async function getStaticProps() {
+  // fetch data from Api
+
+  return {
+    props: {
+      meetups: dummy_meetups,
+    },
+    revalidate: 10,
+  };
+}
+
+// export async function getServerSideProps(context) {
+//   const req = context.req;
+//   const res = context.res;
+//
+//   // fetch data from API
+//
+//   return {
+//     props: {
+//       meetups: dummy_meetups,
+//     },
+//   };
+// }
 
 export default HomePage;
